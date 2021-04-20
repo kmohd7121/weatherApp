@@ -1,0 +1,133 @@
+<!-- <form >
+    <div class="option">
+        <select id="myselect" #type>
+            <option value="india">India</option>
+            <option value="iraq">Iraq</option>
+            <option value="japan">Japan</option>
+            <option value="australia">Australia</option>
+            <option value="america">America</option>
+            <option value="Belgium">Belgium</option>
+            <option value="brazil">Brazil</option>
+        
+        </select>
+    </div>
+    
+</form>
+<input type="text" #data1>
+<button type="button"  (click)="myFunction(data1.value)">Add City</button> <br>
+<button type="button" (click)="removefunc(data1.value)">Remove City</button>
+<button (click)="Saveitem(data1.value)">Save</button>
+<div class="btn">
+    <button  (click)="findData(type.value) ">Current Weather</button>
+</div>
+<div class="main">
+  <h2> {{data.location.name}}</h2>
+   <div class="img">
+    <img src="{{data.current.weather_icons}}" width="100px" alt="">
+   </div>
+   
+</div>
+<div class="info">
+    
+   temp: {{data.current.temperature}} C <br>
+   pressure:{{data.current.pressure}} <br>
+   wind_speed:{{data.current.wind_speed}} <br>
+   wind_dir:{{data.current.wind_dir}} <br>
+   {{data.current.weather_descriptions[0]}} <br>
+    <div class="pre">
+        <h3>PREDICTIONS</h3>
+    </div>
+</div>
+ -->
+<div class="container-fluid ">
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+        <ul class="navbar-nav">
+            <li class="nav-item active mr-1">
+                <select id="myselect" #type>
+                    <option value="india">India</option>
+                    <option value="iraq">Iraq</option>
+                    <option value="japan">Japan</option>
+                    <option value="australia">Australia</option>
+                    <option value="america">America</option>
+                    <option value="Belgium">Belgium</option>
+                    <option value="brazil">Brazil</option>
+
+                </select>
+            </li>
+            <li class="nav-item">
+                <!-- <a class="nav-link" href="#">Link</a> -->
+                <button class="mr-2 btn-primary" (click)="findData(type.value) ">Current Weather</button>
+            </li>
+
+            <li class="nav-item">
+                <!-- <a class="nav-link disabled displ" href="#">Disabled</a> -->
+                <input type="text" class="mr-1 " #data1>
+            </li>
+            <li class="nav-item">
+                <button type="button" class="mr-2 btn-success" (click)="myFunction(data1.value)">Add City</button> <br>
+            </li>
+            <li class="nav-item">
+                <button class="mr-1 btn-info" (click)="Saveitem(data1.value)">Save</button>
+            </li>
+            <li>
+                <button class="mr-1 btn-danger" type="button" (click)="removefunc(data1.value)">Remove City</button>
+            </li>
+            <li class="mr-1 btn-priary">
+                <button type="button" class="mr-2 btn-info"  (click)="forecastWeather(type.value)">forecast</button>
+            </li>
+        </ul>
+    </nav>
+    <div class="container img">
+            <div class="card text-center" style="width:400px">
+                <div class="container card-body ">
+                    <h4 class="card-title text-center">{{data.location.name}}</h4>
+                    <div class="card-img-top text-center card-text">
+                        <img src="{{data.current.weather_icons}}" style="width:20%" alt="">
+                    </div>
+                    <p class="card-text">
+                    temp: {{data.current.temperature}} C<br>
+                    pressure:{{data.current.pressure}} <br>
+                    wind_speed:{{data.current.wind_speed}} <br>
+                    wind_dir:{{data.current.wind_dir}} <br>
+                    {{data.current.weather_descriptions[0]}} <br>
+                    </p>
+                </div>
+            </div>
+        </div>
+    <!-- current location -->
+        <div class="container img">
+            <div class="card text-center" style="width:400px">
+                <div class="card-body ">
+                    <h4 class="card-title text-center">{{loc.location.name}}</h4>
+                    <div class="card-img-top text-center">
+                        <img src="{{loc.current.weather_icons}}" style="width:20%" alt="">
+                    </div>
+                    temp: {{loc.current.temperature}} C<br>
+                    pressure:{{loc.current.pressure}} <br>
+                    wind_speed:{{loc.current.wind_speed}} <br>
+                    wind_dir:{{loc.current.wind_dir}} <br>
+                    {{loc.current.weather_descriptions[0]}} <br>
+                </div>
+            </div>
+        </div>
+        <!-- forecast  -->
+        <div class="card-deck forecastContainer ">
+            <div *ngFor="let i of forecasting">
+                    <div class="container img">
+                        <div class="card text-center" style="width:200px">
+                            <div class="card-body ">
+                                <h4 class=" card-title text-center">{{i.dt_txt}}</h4>
+                                <div class=" card-img-top text-center">
+                                    <img src="http://openweathermap.org/img/wn/{{i.weather[0].icon}}@2x.png" class="card-img-top" style="width:20%" alt="">
+                                </div >
+                                    Weather: {{i.weather[0].description}} <br>
+                                    Temperature:{{i.main.temp}} <br>
+                                    Humidity:{{i.main.humidity}} <br>
+                                    Pressure:{{i.main.pressure}} <br>
+                              
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+</div>

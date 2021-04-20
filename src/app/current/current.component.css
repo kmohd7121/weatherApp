@@ -1,0 +1,44 @@
+/* .option{
+    margin-left: 70%;
+    margin-top: 4rem;
+}
+.btn{
+    margin-left: 75%;
+    margin-right: 25rem;
+    margin-top: -1.2rem;
+}
+.main{
+
+    margin-left: 45rem;
+}
+.img{
+   margin-top:1rem ;
+}
+.info{
+    margin-left: 45rem;
+}
+.pre{
+    margin-left: -45rem;
+} */
+
+.displ{
+    margin-left: 380px;
+}
+.img{
+    padding-left: 25%;
+    padding-top: 5%;
+    border-radius: 2rem;
+}
+.color{
+    background-color: lightgrey;
+}
+.forecastContainer{
+    /* display: flex; */
+    /* background: lightgray; */
+}
+@media only screen and (max-width:600px){
+    .forecastContainer{
+        align-items: center;
+
+    }
+}
